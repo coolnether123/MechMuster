@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MechMuster_Name>Mech Muster</MechMuster_Name>
+  <MechMuster_Command>Mech Muster</MechMuster_Command>
+  <MechMuster_Command_Tip>Set the mech types and counts this mechanitor should control.</MechMuster_Command_Tip>
+  <MechMuster_Title>{0}'s mech muster</MechMuster_Title>
+  <MechMuster_NoGame>No active game is available.</MechMuster_NoGame>
+  <MechMuster_Automation>Automatically fill wanted counts</MechMuster_Automation>
+  <MechMuster_Automation_Tip>Assign only currently unassigned mechs. Existing assignments stay unchanged.</MechMuster_Automation_Tip>
+  <MechMuster_Guidance>Set Wanted with +/−. Only unassigned mechs can be added.</MechMuster_Guidance>
+  <MechMuster_Search>Search</MechMuster_Search>
+  <MechMuster_Advanced>Advanced</MechMuster_Advanced>
+  <MechMuster_Advanced_Tip>Show optional assignment priority.</MechMuster_Advanced_Tip>
+  <MechMuster_Column_Type>Mech type</MechMuster_Column_Type>
+  <MechMuster_Column_Count>Current</MechMuster_Column_Count>
+  <MechMuster_Column_Desired>Wanted</MechMuster_Column_Desired>
+  <MechMuster_Wanted_Tip>The number of this mech type this mechanitor should control.</MechMuster_Wanted_Tip>
+  <MechMuster_Column_Priority>Priority</MechMuster_Column_Priority>
+  <MechMuster_Priority_Normal>—</MechMuster_Priority_Normal>
+  <MechMuster_Priority_Tip>Higher numbers are filled first. Leave at — for normal fair assignment.</MechMuster_Priority_Tip>
+  <MechMuster_MusterNow>Muster now</MechMuster_MusterNow>
+  <MechMuster_NoMechTypes>No controllable mech types are loaded.</MechMuster_NoMechTypes>
+  <MechMuster_NoSearchResults>No mech types match this search.</MechMuster_NoSearchResults>
+  <MechMuster_NoRebalance>Existing mech assignments stay unchanged.</MechMuster_NoRebalance>
+  <MechMuster_Settings_Automation>Automation</MechMuster_Settings_Automation>
+  <MechMuster_Settings_Global>Enable automatic muster</MechMuster_Settings_Global>
+  <MechMuster_Settings_Global_Tip>Periodically assign unassigned colony mechs and route newly gestated or resurrected mechs to eligible mechanitors with wanted counts. Enabled by default, but inert until at least one wanted count is above zero.</MechMuster_Settings_Global_Tip>
+  <MechMuster_Settings_Messages>Show assignment messages</MechMuster_Settings_Messages>
+  <MechMuster_Settings_Messages_Tip>Show one concise message when Mech Muster assigns a mech or leaves a newly completed mech unrequested.</MechMuster_Settings_Messages_Tip>
+  <MechMuster_Message_Assigned>Mech Muster assigned {0} to {1}.</MechMuster_Message_Assigned>
+  <MechMuster_Message_Unrequested>Mech Muster left {0} unassigned: no eligible mechanitor requested it.</MechMuster_Message_Unrequested>
+  <MechMuster_Message_MusterComplete>Mech Muster assigned {0} mech(s).</MechMuster_Message_MusterComplete>
+</LanguageData>

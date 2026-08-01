@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>MechMuster.Tests</AssemblyName>
+    <RootNamespace>MechMuster.Tests</RootNamespace>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\Source\Domain\MusterCandidate.cs"
+             Link="MusterCandidate.cs" />
+    <Compile Include="..\Source\Domain\MusterAllocator.cs"
+             Link="MusterAllocator.cs" />
+    <Compile Include="..\Source\Domain\AutomationIntent.cs"
+             Link="AutomationIntent.cs" />
+  </ItemGroup>
+</Project>

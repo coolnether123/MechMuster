@@ -1,0 +1,6 @@
+Engineering/artifacts/
+*.user
+*.suo
+bin/
+obj/
+1.6/Assemblies/*.pdb

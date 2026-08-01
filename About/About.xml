@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Mech Muster</name>
+  <author>CoolNether123</author>
+  <packageId>CoolNether123.MechMuster</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>Ludeon.RimWorld.Biotech</packageId>
+      <displayName>Biotech</displayName>
+    </li>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>CoolNether123.Spine</packageId>
+      <displayName>Spine</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld.Biotech</li>
+    <li>brrainz.harmony</li>
+    <li>CoolNether123.Spine</li>
+  </loadAfter>
+  <description>Give each mechanitor a desired number of every controllable mech type. Mech Muster assigns newly available, unassigned mechs fairly to eligible mechanitors with deficits while respecting bandwidth, explicit priorities, and existing player assignments.
+
+Open a mechanitor's native Mech Muster command to edit that save's roster. Automatic muster is opt-in globally and can be disabled for individual mechanitors. Existing overseers and control groups are never changed automatically.</description>
+</ModMetaData>

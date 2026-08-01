@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "packageId": "CoolNether123.MechMuster",
+  "rimWorldVersion": "1.6",
+  "profilerMode": "absent",
+  "build": {
+    "versionManifestSha256": "0174C74429A3B1D9B272002A055FDBBC6645A0BF24A085E8BF39FDD3407B505B",
+    "gameAssemblySha256": "4A170804FBFEFABDB620D8914E584E58F822A58C6E304DCB76A67003588DAB28",
+    "sourceCommit": null,
+    "sourceState": "greenfield-uncommitted",
+    "modAssemblySha256": "C81673FDD075FCC9CB6BA4C006C8AB66B41595A4746B9D254FC8FE93F9F4116E",
+    "modAssemblySizeBytes": 32256,
+    "spineSha256": "CDEB1F284C3C7555E11CACF0E735A1EED4D7AA634EABBE444F20E9B4D9D5CC57",
+    "warnings": 0,
+    "errors": 0
+  },
+  "runtime": {
+    "sessionId": "MechMuster-d150dd76904044be947e6e72298c429d",
+    "profile": "biotech",
+    "activeMods": [
+      "Ludeon.RimWorld",
+      "brrainz.harmony",
+      "Coolnether123.RimWorldAgent",
+      "Ludeon.RimWorld.Biotech",
+      "CoolNether123.Spine",
+      "CoolNether123.MechMuster"
+    ],
+    "liveProbe": "complete",
+    "liveProbeDetails": {
+      "noSteal": true,
+      "groupPreserved": true,
+      "fairAssignment": true,
+      "unrequested": true,
+      "perAutomation": true,
+      "globalOff": true,
+      "manual": true,
+      "mechKinds": 22
+    },
+    "stateBeforeReload": "plans=2 targets=23 mechKinds=22 globalAutomation=false",
+    "stateAfterReload": "plans=2 targets=23 mechKinds=22 globalAutomation=false",
+    "completedLoadGeneration": 1,
+    "harmonyPostfixes": 3,
+    "errorLogMatches": 0,
+    "exceptionLogMatches": 0,
+    "logSha256": "C33F873B004A63D6C47740A86C2B86EBDF8D735C426F38314D7F41999BA255E2",
+    "captures": [
+      {
+        "name": "populated-roster-20260801-183243-050.png",
+        "sha256": "2880EF1EC673FA9918CCF1E5F916B2F48FFEC1C9ACD447E80627088E91DC8519"
+      },
+      {
+        "name": "roster-after-reload-20260801-183512-816.png",
+        "sha256": "5A0E01A5EA87DB81E6209FBC8DD4BFE64617D719DFC0A1104197C1308C6FE43C"
+      },
+      {
+        "name": "settings-after-authoritative-reload-20260801-183542-112.png",
+        "sha256": "D2E7749E183AB190A3941AAE0C4CC6CBF6683EFB0A124AC7DF2DF7A58294B912"
+      }
+    ]
+  },
+  "uxVerification": {
+    "genericFixtureSessionId": "MechMuster-17ef6e97e0bc4ebc8ae626dc9b3f4a24",
+    "semanticActivationSessionId": "MechMuster-f8b26c27e1a34a9f9b50bc0e1003b92b",
+    "genericFixture": "adult mechanitor id=37204 created and selected through dev-run create-pawn-fixture mechanitor",
+    "semanticGizmo": {
+      "label": "Mech Muster",
+      "matched": 1,
+      "activated": true,
+      "detail": "ordinary-process-input-complete",
+      "windowState": "visible after activation; exact MechMuster.Presentation.Dialog_MechMuster close succeeded"
+    },
+    "uiScaleCoverage": [
+      1.0,
+      1.25
+    ],
+    "errorLogMatches": 0,
+    "exceptionLogMatches": 0,
+    "logSha256": "EA450AF4E9D5D985B29D12F33D4F7B96C9B319788AAF9DF68615472C6BADB82D",
+    "captures": [
+      {
+        "name": "final-selected-gizmo-ui-1-0-20260801-191848-846.png",
+        "sha256": "C06BD10C7279EA4B14CA638163F2620F9BAFF5D094C9E1BD6F065328742A693F"
+      },
+      {
+        "name": "final-roster-ui-1-0-20260801-192028-846.png",
+        "sha256": "5D1D3A961568A580826AB98EC59A59447303C47019A471E06CBFBA385D41D93B"
+      },
+      {
+        "name": "alternate-ui-scale-1-25-roster-20260801-191740-897.png",
+        "sha256": "290A4A3C415EDEAA7C049F5A1CCDE7B8105646F6D9D9F813F3C71F6A41320BF6"
+      },
+      {
+        "name": "semantic-post-click-20260801-192715-993.png",
+        "sha256": "92F405CE7D0B438CDEEE520BC33136CF49C6A1D905F0354146B6D80B2FB32239"
+      }
+    ]
+  },
+  "tests": {
+    "allocationAssertions": 40,
+    "result": "pass"
+  },
+  "releasePackage": {
+    "resultCode": "RWT-BUILD-RELEASE-PACKAGE-VALID",
+    "includePaths": [
+      "About",
+      "1.6/Assemblies/MechMuster.dll",
+      "Languages",
+      "LICENSE"
+    ],
+    "stagingId": "MechMuster-release-lean-final-20260801-150342",
+    "files": {
+      "1.6/Assemblies/MechMuster.dll": "C81673FDD075FCC9CB6BA4C006C8AB66B41595A4746B9D254FC8FE93F9F4116E",
+      "About/About.xml": "3E36AF3DF42458170C84BBEF2A7195E28C874DB7718DF3A70FDEE83A242CA5C7",
+      "About/Preview.png": "3566926FA6CDE104BF8654CB5F638941B37DA68EFF312165CAFBAA301436D131",
+      "Languages/English/Keyed/MechMuster.xml": "A132D1908DC9950B4B70BED30E3DD8D44BE4A4D1D6827883E23C295AB9791684",
+      "LICENSE": "7942115C67A258A6F955EF971F48E7A04C8A1CDCEC8F862CED392F93DA44F05A"
+    },
+    "licenseSha256": "7942115C67A258A6F955EF971F48E7A04C8A1CDCEC8F862CED392F93DA44F05A"
+  },
+  "reviewedRuntime": {
+    "sessionId": "MechMuster-c0ee73cde56844d98054f3b9ed650142",
+    "liveProbe": "complete",
+    "newMechUnrequested": true,
+    "gizmoOrder": "rightmost-after-vanilla",
+    "normalClick": "roster-opened",
+    "altClick": "Spine global automation setting opened; roster suppressed",
+    "errorLogMatches": 0,
+    "exceptionLogMatches": 0,
+    "logSha256": "54BC35B6E7F76995082B1249C6B229404EA71E8F08F0FBEFB2E7B1CD9FA852B4",
+    "captures": [
+      {
+        "name": "final-rightmost-gizmo-20260801-195131-281.png",
+        "sha256": "75F7F70D240E7EA24F3699128996238EC59F9696E8C46E934C67245671C37787"
+      },
+      {
+        "name": "final-normal-click-roster-20260801-195243-163.png",
+        "sha256": "3566926FA6CDE104BF8654CB5F638941B37DA68EFF312165CAFBAA301436D131"
+      },
+      {
+        "name": "final-alt-click-contextual-settings-20260801-195434-800.png",
+        "sha256": "C6C026C00FBC47514411E723C83B02FBB04D21D1E8CEDD97D3703E9BAF9D441D"
+      }
+    ]
+  },
+  "leanBinaryRuntime": {
+    "sessionId": "MechMuster-d555c4c90bed487d939e50e684863905",
+    "assemblySha256": "C81673FDD075FCC9CB6BA4C006C8AB66B41595A4746B9D254FC8FE93F9F4116E",
+    "liveProbe": "complete",
+    "liveProbeDetails": {
+      "noSteal": true,
+      "groupPreserved": true,
+      "fairAssignment": true,
+      "unrequested": true,
+      "newMechUnrequested": true,
+      "perAutomation": true,
+      "globalOff": true,
+      "manual": true,
+      "mechKinds": 22
+    },
+    "gizmoOrder": "rightmost-after-vanilla",
+    "errorLogMatches": 0,
+    "exceptionLogMatches": 0,
+    "logSha256": "AEEC62D6F59F27F7CFC737D44AC5F13B9B7AF1BC0479B924BB296B58780B3F51",
+    "captures": [
+      {
+        "name": "lean-final-rightmost-gizmo-20260801-200555-691.png",
+        "sha256": "3A8DCC17E51ABA4D009B893F3ACEE60EADD6AE07D0B56148C2F0EC7E9185E303"
+      }
+    ]
+  },
+  "requiredProvenance": [
+    "versionManifestSha256",
+    "gameAssemblySha256",
+    "sourceCommit",
+    "modAssemblySha256",
+    "activeMods",
+    "logSha256"
+  ]
+}
