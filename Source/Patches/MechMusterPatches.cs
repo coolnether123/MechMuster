@@ -4,6 +4,8 @@ using HarmonyLib;
 using MechMuster.Presentation;
 using MechMuster.Runtime;
 using RimWorld;
+using Spine.Api;
+using Spine.Harmony;
 using Verse;
 
 namespace MechMuster.Patches
@@ -11,38 +13,35 @@ namespace MechMuster.Patches
     internal static class MechMusterPatches
     {
         private const string HarmonyId = "CoolNether123.MechMuster";
-        private static bool installed;
+        private static readonly IHarmonyPatchInstaller Installer =
+            SpineApi.Patching.CreateInstaller(HarmonyId, "[Mech Muster]");
 
         internal static void Install()
         {
-            if (installed)
-            {
-                return;
-            }
-
-            var harmony = new Harmony(HarmonyId);
-            harmony.Patch(
+            Installer.TryPatch(
+                "gestation completion",
                 AccessTools.Method(
                     typeof(Bill_ProductionMech),
                     nameof(Bill_ProductionMech.CreateProducts)),
                 postfix: new HarmonyMethod(
                     typeof(MechMusterPatches),
                     nameof(NewMechPostfix)));
-            harmony.Patch(
+            Installer.TryPatch(
+                "resurrection completion",
                 AccessTools.Method(
                     typeof(Bill_ResurrectMech),
                     nameof(Bill_ResurrectMech.CreateProducts)),
                 postfix: new HarmonyMethod(
                     typeof(MechMusterPatches),
                     nameof(NewMechPostfix)));
-            harmony.Patch(
+            Installer.TryPatch(
+                "mechanitor gizmos",
                 AccessTools.Method(
                     typeof(Pawn_MechanitorTracker),
                     nameof(Pawn_MechanitorTracker.GetGizmos)),
                 postfix: new HarmonyMethod(
                     typeof(MechMusterPatches),
                     nameof(MechanitorGizmosPostfix)));
-            installed = true;
         }
 
         private static void NewMechPostfix(Thing __result)

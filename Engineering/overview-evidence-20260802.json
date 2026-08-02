@@ -1,0 +1,54 @@
+{
+  "feature": "colony-wide mechanitor roster overview",
+  "sourceCommitBeforeChange": "98975c548ed67d05e1bd959218262374fcffa2bd",
+  "rimWorldVersion": "1.6.4871",
+  "profile": "biotech",
+  "sessionId": "MechMuster-33aba0ee6385451fac829d557de0ac1f",
+  "activePackages": [
+    "Core",
+    "Harmony",
+    "RimWorld Agent",
+    "Biotech",
+    "Spine",
+    "Mech Muster"
+  ],
+  "automatedTests": {
+    "result": "pass",
+    "assertions": 46
+  },
+  "build": {
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0,
+    "packageValidation": "RWT-BUILD-PACKAGE-VALID",
+    "assemblySizeBytes": 38400,
+    "assemblySha256": "37A486D18D5B35DD5EB5F74824DCFFA1255FA63FE25A86D9EA34C1EFDF302147"
+  },
+  "liveVerification": {
+    "mechanitorCount": 2,
+    "ordinaryGizmoActivation": "matched=1, activated=True, ordinary-process-input-complete",
+    "windowType": "MechMuster.Presentation.Dialog_MechMuster",
+    "windowCount": 1,
+    "saveName": "MechMusterOverview",
+    "normalLoadCompleted": true,
+    "overviewReopenedAfterLoad": true,
+    "harmonyPatchCount": 3,
+    "playerLogErrorMatches": 0,
+    "playerLogExceptionMatches": 0,
+    "playerLogSha256": "C520466002AACD1336E1ACFE5D1F04FC4E2F6747EDF6F7249C2A7139022468D1",
+    "exitCode": 0,
+    "forcedTermination": false
+  },
+  "captures": [
+    {
+      "purpose": "initial colony overview",
+      "name": "mech-muster-colony-overview-20260802-011714-701.png",
+      "sha256": "FF574CAE8D16C5FFD6A100FF225E8A4D05AFDEAF3A6A5B611640FFC4620B8C42"
+    },
+    {
+      "purpose": "overview after normal save and reload",
+      "name": "mech-muster-overview-after-reload-20260802-012057-775.png",
+      "sha256": "4843B51521389621F5C3555C99165EEE1249BB21ADAB7FE4F3BB1F65CFEB15C9"
+    }
+  ]
+}

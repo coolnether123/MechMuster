@@ -3,6 +3,28 @@
   "packageId": "CoolNether123.MechMuster",
   "rimWorldVersion": "1.6",
   "profilerMode": "absent",
+  "currentCandidate": {
+    "date": "2026-08-02",
+    "sourceBaseCommit": "98975c548ed67d05e1bd959218262374fcffa2bd",
+    "sourceStateAtBuild": "working tree release candidate; commit pending",
+    "assemblyVersion": "1.0.0.0",
+    "modAssemblySizeBytes": 31232,
+    "modAssemblySha256": "640E742F06E25D01FC1CD7A5A9BB2914AE676AD202937010A4C8EEF383D37392",
+    "spineSha256": "3E857A09793BBFF839D0C18D197E480C9365B6384148F49F48669F068BBB9086",
+    "buildWarnings": 0,
+    "buildErrors": 0,
+    "automatedTests": "1 contract, 46 assertions passed",
+    "packageValidation": "RWT-BUILD-PACKAGE-VALID",
+    "shippingDllCount": 1,
+    "developerFixtureIncluded": false,
+    "releaseIncludePaths": [
+      "About",
+      "1.6/Assemblies/MechMuster.dll",
+      "Languages",
+      "LICENSE"
+    ],
+    "runtimeEvidenceNotice": "The runtime records below remain exact evidence for their named historical assemblies. A final combined launch is required for this metadata-only rebuild."
+  },
   "build": {
     "versionManifestSha256": "0174C74429A3B1D9B272002A055FDBBC6645A0BF24A085E8BF39FDD3407B505B",
     "gameAssemblySha256": "4A170804FBFEFABDB620D8914E584E58F822A58C6E304DCB76A67003588DAB28",

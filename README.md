@@ -11,6 +11,12 @@ Wanted count for every discovered vanilla or modded mech type. Optional
 priority stays behind **Advanced**; higher priorities are filled first, while
 equal-priority requests are filled proportionally with stable pawn-ID ties.
 
+When a colony has several mechanitors, the gizmo opens a colony overview first.
+It shows every mechanitor's automation state, total current and wanted mechs,
+shortage, and requested composition in one list. A mechanitor name or its
+**Roster** button opens that detailed roster inside the same window, and the
+**Colony overview** button returns without closing or reselecting pawns.
+
 Automatic muster defaults on, but is inert until a Wanted count is above zero,
 and can be disabled globally or per mechanitor. Editing a Wanted count never
 overrides an explicit global disable. **Muster now** is an explicit action and
@@ -44,3 +50,8 @@ evidence is recorded in `docs/verification.md` and
 
 Licensed under the MIT License; the license notice is included in every
 release package.
+## Developer verification
+
+Live debug actions are isolated in
+`Developer/MechMuster.TestFixture`. Build and load that folder only for harness
+verification; it is not part of the Mech Muster shipping package.

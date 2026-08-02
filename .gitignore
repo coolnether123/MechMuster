@@ -4,3 +4,5 @@ Engineering/artifacts/
 bin/
 obj/
 1.6/Assemblies/*.pdb
+Developer/**/1.6/Assemblies/*.dll
+Developer/**/1.6/Assemblies/*.pdb

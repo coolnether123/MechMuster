@@ -16,11 +16,14 @@ namespace MechMuster.Presentation
         private const float CurrentColumnWidth = 76f;
         private const float WantedColumnWidth = 132f;
         private const float PriorityColumnWidth = 126f;
+        private const float OverviewRowHeight = 48f;
         private static readonly Vector2 MinimumWindowSize =
             new Vector2(660f, 520f);
-        private readonly Pawn mechanitor;
+        private Pawn mechanitor;
         private bool showAdvanced;
+        private bool? showOverview;
         private Vector2 scrollPosition;
+        private Vector2 overviewScrollPosition;
         private string search = string.Empty;
 
         internal Dialog_MechMuster(Pawn mechanitor)
@@ -69,12 +72,52 @@ namespace MechMuster.Presentation
                 return;
             }
 
+            Map colonyMap = mechanitor.MapHeld ?? Find.CurrentMap;
+            Pawn[] mechanitors = colonyMap == null
+                ? new[] { mechanitor }
+                : colonyMap.mapPawns.PawnsInFaction(Faction.OfPlayer)
+                    .Where(pawn =>
+                        pawn != null &&
+                        !pawn.Dead &&
+                        MechanitorUtility.IsMechanitor(pawn))
+                    .Append(mechanitor)
+                    .Distinct()
+                    .OrderBy(pawn => pawn.LabelShortCap.ToString(),
+                        StringComparer.CurrentCultureIgnoreCase)
+                    .ThenBy(pawn => pawn.thingIDNumber)
+                    .ToArray();
+            if (!showOverview.HasValue)
+            {
+                showOverview = mechanitors.Length > 1;
+            }
+
+            if (showOverview == true)
+            {
+                DrawOverview(inRect, component, mechanitors);
+                return;
+            }
+
             MechanitorPlan plan = component.PlanFor(mechanitor, true);
             Text.Font = GameFont.Medium;
+            const float overviewButtonWidth = 156f;
+            float titleWidth = mechanitors.Length > 1
+                ? inRect.width - overviewButtonWidth - 12f
+                : inRect.width;
             Widgets.Label(
-                new Rect(inRect.x, inRect.y, inRect.width, 34f),
+                new Rect(inRect.x, inRect.y, titleWidth, 34f),
                 "MechMuster_Title".Translate(mechanitor.LabelShortCap));
             Text.Font = GameFont.Small;
+            if (mechanitors.Length > 1 && Widgets.ButtonText(
+                new Rect(
+                    inRect.xMax - overviewButtonWidth,
+                    inRect.y,
+                    overviewButtonWidth,
+                    30f),
+                "MechMuster_Overview_Button".Translate()))
+            {
+                showOverview = true;
+                return;
+            }
 
             bool automaticAssignments =
                 MechMusterMod.Settings.GlobalAutomationEnabled &&
@@ -278,6 +321,265 @@ namespace MechMuster.Presentation
                     footerTextWidth,
                     footerTextHeight),
                 footerText);
+        }
+
+        private void DrawOverview(
+            Rect inRect,
+            MechMusterGameComponent component,
+            Pawn[] mechanitors)
+        {
+            Text.Font = GameFont.Medium;
+            Widgets.Label(
+                new Rect(inRect.x, inRect.y, inRect.width, 34f),
+                "MechMuster_Overview_Title".Translate());
+            Text.Font = GameFont.Small;
+            Widgets.Label(
+                new Rect(inRect.x, inRect.y + 38f, inRect.width, 26f),
+                "MechMuster_Overview_Guidance".Translate());
+
+            const float nameWidth = 154f;
+            const float automationWidth = 86f;
+            const float countWidth = 64f;
+            const float missingWidth = 70f;
+            const float openWidth = 88f;
+            float requestsWidth = Mathf.Max(
+                96f,
+                inRect.width - 18f - nameWidth - automationWidth -
+                    countWidth * 2f - missingWidth - openWidth);
+            float headerY = inRect.y + 70f;
+            Rect header = new Rect(inRect.x, headerY, inRect.width, 28f);
+            Widgets.DrawMenuSection(header);
+            float x = header.x;
+            DrawLabel(
+                new Rect(x + 8f, header.y, nameWidth - 8f, header.height),
+                "MechMuster_Overview_Column_Mechanitor".Translate(),
+                TextAnchor.MiddleLeft);
+            x += nameWidth;
+            DrawLabel(
+                new Rect(x, header.y, automationWidth, header.height),
+                "MechMuster_Overview_Column_Automation".Translate(),
+                TextAnchor.MiddleCenter);
+            x += automationWidth;
+            DrawLabel(
+                new Rect(x, header.y, countWidth, header.height),
+                "MechMuster_Column_Count".Translate(),
+                TextAnchor.MiddleCenter);
+            x += countWidth;
+            DrawLabel(
+                new Rect(x, header.y, countWidth, header.height),
+                "MechMuster_Column_Desired".Translate(),
+                TextAnchor.MiddleCenter);
+            x += countWidth;
+            DrawLabel(
+                new Rect(x, header.y, missingWidth, header.height),
+                "MechMuster_Overview_Column_Missing".Translate(),
+                TextAnchor.MiddleCenter);
+            x += missingWidth;
+            DrawLabel(
+                new Rect(x + 6f, header.y, requestsWidth - 6f, header.height),
+                "MechMuster_Overview_Column_Requests".Translate(),
+                TextAnchor.MiddleLeft);
+
+            const float footerHeight = 38f;
+            Rect outer = new Rect(
+                inRect.x,
+                header.yMax + 4f,
+                inRect.width,
+                Mathf.Max(
+                    1f,
+                    inRect.yMax - header.yMax - footerHeight - 10f));
+            Rect view = new Rect(
+                0f,
+                0f,
+                outer.width - 18f,
+                Math.Max(
+                    outer.height,
+                    Math.Max(1, mechanitors.Length) * OverviewRowHeight));
+            Widgets.BeginScrollView(
+                outer,
+                ref overviewScrollPosition,
+                view);
+
+            int colonyCurrent = 0;
+            int colonyDesired = 0;
+            int colonyMissing = 0;
+            if (mechanitors.Length == 0)
+            {
+                DrawLabel(
+                    new Rect(8f, 0f, view.width - 16f, OverviewRowHeight),
+                    "MechMuster_Overview_Empty".Translate(),
+                    TextAnchor.MiddleLeft);
+            }
+            else
+            {
+                for (int index = 0; index < mechanitors.Length; index++)
+                {
+                    Pawn pawn = mechanitors[index];
+                    MechanitorPlan plan = component.PlanFor(pawn, false);
+                    MusterTargetCount[] targetCounts = plan?.Targets
+                        .Where(target =>
+                            target?.MechKind != null &&
+                            target.Desired > 0)
+                        .Select(target => new MusterTargetCount(
+                            MusterAssignmentService.CurrentCount(
+                                pawn,
+                                target.MechKind),
+                            target.Desired))
+                        .ToArray() ?? Array.Empty<MusterTargetCount>();
+                    int currentRoster = pawn.mechanitor?.OverseenPawns
+                        .Count(mech => mech != null) ?? 0;
+                    MusterRosterMetrics metrics =
+                        MusterRosterMetrics.Calculate(
+                            currentRoster,
+                            targetCounts);
+                    colonyCurrent += metrics.Current;
+                    colonyDesired += metrics.Desired;
+                    colonyMissing += metrics.Missing;
+                    DrawOverviewRow(
+                        new Rect(
+                            0f,
+                            index * OverviewRowHeight,
+                            view.width,
+                            OverviewRowHeight),
+                        pawn,
+                        plan,
+                        metrics,
+                        nameWidth,
+                        automationWidth,
+                        countWidth,
+                        missingWidth,
+                        requestsWidth,
+                        openWidth,
+                        index % 2 == 1);
+                }
+            }
+            Widgets.EndScrollView();
+
+            string summary = "MechMuster_Overview_Summary".Translate(
+                mechanitors.Length,
+                colonyCurrent,
+                colonyDesired,
+                colonyMissing);
+            DrawLabel(
+                new Rect(
+                    inRect.x,
+                    inRect.yMax - footerHeight + 4f,
+                    inRect.width,
+                    footerHeight - 4f),
+                summary,
+                TextAnchor.MiddleLeft);
+        }
+
+        private void DrawOverviewRow(
+            Rect row,
+            Pawn pawn,
+            MechanitorPlan plan,
+            MusterRosterMetrics metrics,
+            float nameWidth,
+            float automationWidth,
+            float countWidth,
+            float missingWidth,
+            float requestsWidth,
+            float openWidth,
+            bool alternate)
+        {
+            if (alternate)
+            {
+                Widgets.DrawLightHighlight(row);
+            }
+
+            float x = row.x;
+            Rect nameRect = new Rect(
+                x + 6f,
+                row.y + 7f,
+                nameWidth - 12f,
+                row.height - 14f);
+            if (Widgets.ButtonTextSubtle(
+                nameRect,
+                pawn.LabelShortCap,
+                textLeftMargin: 6f))
+            {
+                OpenRoster(pawn);
+            }
+            x += nameWidth;
+            bool automation =
+                MechMusterMod.Settings.GlobalAutomationEnabled &&
+                (plan?.AutomationEnabled ?? true);
+            DrawLabel(
+                new Rect(x, row.y, automationWidth, row.height),
+                automation
+                    ? "MechMuster_Overview_Automation_On".Translate()
+                    : "MechMuster_Overview_Automation_Off".Translate(),
+                TextAnchor.MiddleCenter);
+            x += automationWidth;
+            DrawLabel(
+                new Rect(x, row.y, countWidth, row.height),
+                metrics.Current.ToString(),
+                TextAnchor.MiddleCenter);
+            x += countWidth;
+            DrawLabel(
+                new Rect(x, row.y, countWidth, row.height),
+                metrics.Desired.ToString(),
+                TextAnchor.MiddleCenter);
+            x += countWidth;
+            DrawLabel(
+                new Rect(x, row.y, missingWidth, row.height),
+                metrics.Missing.ToString(),
+                TextAnchor.MiddleCenter);
+            x += missingWidth;
+
+            string requests = RequestedRosterText(pawn, plan);
+            Rect requestsRect = new Rect(
+                x + 6f,
+                row.y,
+                requestsWidth - 12f,
+                row.height);
+            TextAnchor previousAnchor = Text.Anchor;
+            Text.Anchor = TextAnchor.MiddleLeft;
+            Widgets.LabelFit(requestsRect, requests);
+            Text.Anchor = previousAnchor;
+            TooltipHandler.TipRegion(requestsRect, requests);
+            x += requestsWidth;
+
+            if (Widgets.ButtonText(
+                new Rect(
+                    x + 4f,
+                    row.y + 7f,
+                    openWidth - 8f,
+                    row.height - 14f),
+                "MechMuster_Overview_Open".Translate()))
+            {
+                OpenRoster(pawn);
+            }
+        }
+
+        private static string RequestedRosterText(
+            Pawn pawn,
+            MechanitorPlan plan)
+        {
+            string[] requests = plan?.Targets
+                .Where(target =>
+                    target?.MechKind != null &&
+                    target.Desired > 0)
+                .OrderBy(target => target.MechKind.LabelCap.ToString(),
+                    StringComparer.CurrentCultureIgnoreCase)
+                .Select(target =>
+                    target.MechKind.LabelCap.ToString() + " " +
+                    MusterAssignmentService.CurrentCount(
+                        pawn,
+                        target.MechKind) + "/" + target.Desired)
+                .ToArray() ?? Array.Empty<string>();
+            return requests.Length == 0
+                ? "MechMuster_Overview_NoRequests".Translate()
+                : string.Join(", ", requests);
+        }
+
+        private void OpenRoster(Pawn pawn)
+        {
+            mechanitor = pawn;
+            showOverview = false;
+            scrollPosition = Vector2.zero;
+            search = string.Empty;
         }
 
         private void DrawRow(

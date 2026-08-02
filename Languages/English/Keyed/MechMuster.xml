@@ -4,6 +4,19 @@
   <MechMuster_Command>Mech Muster</MechMuster_Command>
   <MechMuster_Command_Tip>Set the mech types and counts this mechanitor should control.</MechMuster_Command_Tip>
   <MechMuster_Title>{0}'s mech muster</MechMuster_Title>
+  <MechMuster_Overview_Title>Colony mech muster</MechMuster_Overview_Title>
+  <MechMuster_Overview_Button>Colony overview</MechMuster_Overview_Button>
+  <MechMuster_Overview_Guidance>See every mechanitor's roster, wanted total, and shortage. Open a roster to change it.</MechMuster_Overview_Guidance>
+  <MechMuster_Overview_Column_Mechanitor>Mechanitor</MechMuster_Overview_Column_Mechanitor>
+  <MechMuster_Overview_Column_Automation>Automatic</MechMuster_Overview_Column_Automation>
+  <MechMuster_Overview_Column_Missing>Missing</MechMuster_Overview_Column_Missing>
+  <MechMuster_Overview_Column_Requests>Requested roster</MechMuster_Overview_Column_Requests>
+  <MechMuster_Overview_Automation_On>On</MechMuster_Overview_Automation_On>
+  <MechMuster_Overview_Automation_Off>Off</MechMuster_Overview_Automation_Off>
+  <MechMuster_Overview_NoRequests>No wanted mechs</MechMuster_Overview_NoRequests>
+  <MechMuster_Overview_Open>Roster</MechMuster_Overview_Open>
+  <MechMuster_Overview_Empty>No mechanitors are available in this colony.</MechMuster_Overview_Empty>
+  <MechMuster_Overview_Summary>{0} mechanitor(s) · {1} current · {2} wanted · {3} missing</MechMuster_Overview_Summary>
   <MechMuster_NoGame>No active game is available.</MechMuster_NoGame>
   <MechMuster_Automation>Automatically fill wanted counts</MechMuster_Automation>
   <MechMuster_Automation_Tip>Assign only currently unassigned mechs. Existing assignments stay unchanged.</MechMuster_Automation_Tip>

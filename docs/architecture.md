@@ -16,7 +16,7 @@ Mech Muster has four explicit concerns.
    mechanitor tracker, enough current bandwidth, a controllable living mech,
    per-mechanitor automation, and an outstanding type target.
 4. `Presentation` owns the mechanitor window; `Patches` owns three narrow
-   integration points. Spine 1.2 supplies the complete mod-settings page,
+   integration points. Spine 1.0 supplies the complete mod-settings page,
    definition scribing, translation fallback, contextual-settings lease, and
    contextual routing through `SpineApi.Settings`.
 
@@ -25,6 +25,13 @@ without changing vanilla order. It owns both paths: a normal click opens the
 roster, while Alt-click is consumed by Spine's contextual binding and opens the
 narrow global automation setting. The roster is not opened on the contextual
 path.
+
+The same window owns both presentation levels. A colony with more than one
+mechanitor opens on the colony overview, derived live from the selected
+mechanitor's map. The overview reads existing plans without creating empty save
+records, summarizes current, wanted, and missing counts, and drills into any
+mechanitor's detailed roster without stacking windows. A single-mechanitor
+colony still opens directly on the detailed editor.
 
 ## Mutation boundary
 
@@ -60,6 +67,12 @@ mod does not implement.
 
 - `Dialog_MechMuster.DrawRow` has one production caller and remains local: it
   owns the cohesive row layout and keeps window orchestration readable.
+- `Dialog_MechMuster.DrawOverviewRow` and `RequestedRosterText` each have one
+  production caller and remain local because they are immediate-mode layout
+  details, not reusable gameplay services.
+- `MusterRosterMetrics.Calculate` has one UI caller and is retained as a pure
+  domain boundary because the overview's shortage semantics are independently
+  tested without loading RimWorld.
 - `MusterAssignmentService.IsEligible` has one production caller and remains a
   named domain boundary: inlining its vanilla eligibility contract would make
   selection harder to audit.

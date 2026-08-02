@@ -2,14 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MechMuster.Domain;
+using static RimWorld.ModTestSupport.Test;
 
 namespace MechMuster.Tests
 {
     internal static class Program
     {
-        private static int assertions;
-
         private static int Main()
+        {
+            Start("Mech Muster contracts");
+            Run("deterministic allocation and overview", AllContracts);
+            return Finish();
+        }
+
+        private static void AllContracts()
         {
             AssertSelected(null, 1);
             AssertSelected(new[] { Candidate("a", 0, 0) }, 1);
@@ -60,20 +66,43 @@ namespace MechMuster.Tests
 
             AutomationState wantedEdit =
                 AutomationIntent.ForWantedEdit(false);
-            AssertEqual(false, wantedEdit.GlobalEnabled,
+            Equal(false, wantedEdit.GlobalEnabled,
                 "Wanted edit must preserve explicit global-off");
-            AssertEqual(true, wantedEdit.PlanEnabled,
+            Equal(true, wantedEdit.PlanEnabled,
                 "Wanted edit enables the selected mechanitor plan");
             AutomationState explicitEnable =
                 AutomationIntent.ForExplicitEnable();
-            AssertEqual(true, explicitEnable.GlobalEnabled,
+            Equal(true, explicitEnable.GlobalEnabled,
                 "Explicit automation enable turns on the global gate");
-            AssertEqual(true, explicitEnable.PlanEnabled,
+            Equal(true, explicitEnable.PlanEnabled,
                 "Explicit automation enable turns on the plan gate");
-            AssertEqual(false, AutomationIntent.PlanEligible(true, false),
+            Equal(false, AutomationIntent.PlanEligible(true, false),
                 "Automatic runs honor a disabled plan");
-            AssertEqual(true, AutomationIntent.PlanEligible(false, false),
+            Equal(true, AutomationIntent.PlanEligible(false, false),
                 "Manual runs ignore a disabled plan");
+
+            MusterRosterMetrics overview = MusterRosterMetrics.Calculate(
+                7,
+                new[]
+                {
+                    new MusterTargetCount(1, 4),
+                    new MusterTargetCount(3, 2),
+                    new MusterTargetCount(-1, -2)
+                });
+            Equal(7, overview.Current,
+                "Overview reports the full controlled roster");
+            Equal(6, overview.Desired,
+                "Overview sums requested counts");
+            Equal(3, overview.Missing,
+                "Overview never reports negative shortages");
+            MusterRosterMetrics emptyOverview =
+                MusterRosterMetrics.Calculate(-4, null);
+            Equal(0, emptyOverview.Current,
+                "Overview clamps an invalid current count");
+            Equal(0, emptyOverview.Desired,
+                "Overview handles no requested types");
+            Equal(0, emptyOverview.Missing,
+                "Overview handles no shortages");
 
             MusterCandidate[] permutationSet =
             {
@@ -88,10 +117,6 @@ namespace MechMuster.Tests
                 AssertSelected(permutation, 1, "m");
             }
 
-            Console.WriteLine(
-                "PASS: " + assertions +
-                " deterministic allocation assertions");
-            return 0;
         }
 
         private static MusterCandidate Candidate(
@@ -115,13 +140,10 @@ namespace MechMuster.Tests
                 candidates ?? Enumerable.Empty<MusterCandidate>(),
                 bandwidth);
             string actual = selected?.MechanitorId;
-            assertions++;
-            if (!string.Equals(actual, expected, StringComparison.Ordinal))
-            {
-                throw new InvalidOperationException(
-                    "Expected '" + (expected ?? "<none>") +
-                    "' but selected '" + (actual ?? "<none>") + "'.");
-            }
+            Equal(
+                expected,
+                actual,
+                "allocator selected an unexpected mechanitor");
         }
 
         private static void AssertSequence(
@@ -160,32 +182,17 @@ namespace MechMuster.Tests
                 }
             }
 
-            assertions++;
             string actual = string.Join(",", sequence);
-            if (!string.Equals(actual, expected, StringComparison.Ordinal))
-            {
-                throw new InvalidOperationException(
-                    "Expected sequence '" + expected +
-                    "' but got '" + actual + "'.");
-            }
+            Equal(
+                expected,
+                actual,
+                "allocator produced an unexpected assignment sequence");
         }
 
         private static IEnumerable<MusterCandidate[]> Permutations(
             MusterCandidate[] values)
         {
             return Permute(values, 0);
-        }
-
-        private static void AssertEqual<T>(
-            T expected,
-            T actual,
-            string contract)
-        {
-            assertions++;
-            if (!EqualityComparer<T>.Default.Equals(expected, actual))
-            {
-                throw new InvalidOperationException(contract + ".");
-            }
         }
 
         private static IEnumerable<MusterCandidate[]> Permute(

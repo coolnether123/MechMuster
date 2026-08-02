@@ -8,6 +8,12 @@
   "configuration": "Release",
   "assemblyName": "MechMuster",
   "packageId": "CoolNether123.MechMuster",
+  "releaseIncludePaths": [
+    "About",
+    "1.6/Assemblies/MechMuster.dll",
+    "Languages",
+    "LICENSE"
+  ],
   "dependencies": [
     "harmony",
     "spine"

@@ -5,6 +5,7 @@
     <AssemblyName>MechMuster.Tests</AssemblyName>
     <RootNamespace>MechMuster.Tests</RootNamespace>
     <Deterministic>true</Deterministic>
+    <RwtTestSupportProject Condition="'$(RwtTestSupportProject)' == ''">$(MSBuildThisFileDirectory)..\..\..\Worktrees\RimWorld-Tooling\phase-a\test-support\RimWorld.ModTestSupport\RimWorld.ModTestSupport.csproj</RwtTestSupportProject>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Source\Domain\MusterCandidate.cs"
@@ -13,5 +14,10 @@
              Link="MusterAllocator.cs" />
     <Compile Include="..\Source\Domain\AutomationIntent.cs"
              Link="AutomationIntent.cs" />
+    <Compile Include="..\Source\Domain\MusterRosterMetrics.cs"
+             Link="MusterRosterMetrics.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(RwtTestSupportProject)" />
   </ItemGroup>
 </Project>
