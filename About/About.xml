@@ -30,5 +30,5 @@
   </loadAfter>
   <description>Give each mechanitor a desired number of every controllable mech type. Mech Muster assigns newly available, unassigned mechs fairly to eligible mechanitors with deficits while respecting bandwidth, explicit priorities, and existing player assignments.
 
-Open a mechanitor's native Mech Muster command to edit that save's roster. Automatic muster is opt-in globally and can be disabled for individual mechanitors. Existing overseers and control groups are never changed automatically.</description>
+Open a mechanitor's native Mech Muster command to edit that save's roster. Colonies with several mechanitors get a colony-wide overview before opening an individual roster. Automation can be disabled globally or per mechanitor, and existing overseers and control groups are never changed automatically.</description>
 </ModMetaData>

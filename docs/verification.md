@@ -124,3 +124,10 @@ one DLL and excludes `Developer/MechMuster.TestFixture`; the fixture source and
 metadata remain available to developers. The runtime records above remain
 bound to their exact historical hashes, so the parent release pass must record
 the final combined launch for this candidate.
+## Final release-candidate gate — 2026-08-03
+
+Passed its 46-assertion deterministic roster suite, clean build, and package
+checks. A live Biotech colony with two mechanitors opened the colony-wide
+overview, showed both mechanitors and roster entry points cleanly, and kept its
+gizmo to the right of vanilla controls. The all-suite compatibility stacks
+produced no Mech Muster exception.

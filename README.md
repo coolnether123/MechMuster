@@ -36,6 +36,13 @@ request, it remains unassigned.
 Load Harmony and Spine before Mech Muster. No gameplay mod other than Biotech
 is required.
 
+## Installation
+
+Install Harmony and Spine, copy Mech Muster into RimWorld's `Mods` directory,
+then enable Biotech, Harmony, Spine, and Mech Muster. The mod is inert in saves
+without configured Wanted counts and never requires another gameplay mod from
+the suite.
+
 ## Build and verification
 
 Pure allocation tests live in `Tests/Mod.Tests.csproj`. The production assembly
