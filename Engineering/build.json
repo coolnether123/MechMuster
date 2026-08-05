@@ -12,7 +12,8 @@
     "About",
     "1.6/Assemblies/MechMuster.dll",
     "Languages",
-    "LICENSE"
+    "LICENSE",
+    "README.md"
   ],
   "dependencies": [
     "harmony",

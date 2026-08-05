@@ -30,35 +30,43 @@ request, it remains unassigned.
 
 - RimWorld 1.6
 - Biotech
-- Harmony
-- Spine (`CoolNether123.Spine`)
+- [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077)
+- [Spine](https://github.com/coolnether123/Spine) — the shared runtime used by
+  CoolNether123 mods
 
-Load Harmony and Spine before Mech Muster. No gameplay mod other than Biotech
-is required.
+No gameplay mod other than Biotech is required.
 
 ## Installation
 
-Install Harmony and Spine, copy Mech Muster into RimWorld's `Mods` directory,
-then enable Biotech, Harmony, Spine, and Mech Muster. The mod is inert in saves
-without configured Wanted counts and never requires another gameplay mod from
-the suite.
+Install Harmony and Spine, copy `MechMuster` into RimWorld's `Mods` folder,
+then enable Biotech, Harmony, Spine, and Mech Muster in that order.
+
+The mod is inert in saves without configured Wanted counts and never requires
+another gameplay mod from the suite.
 
 ## Build and verification
 
 Pure allocation tests live in `Tests/Mod.Tests.csproj`. The production assembly
 is built through the centralized RimWorld tooling with dependencies
 `harmony,spine`; the validated release allowlist is `About`,
-`1.6/Assemblies/MechMuster.dll`, `Languages`, and `LICENSE`.
+`1.6/Assemblies/MechMuster.dll`, `Languages`, `LICENSE`, and `README.md`.
 
-See `docs/architecture.md`, `docs/compatibility.md`, `docs/research.md`, and
-`docs/tests.md` for exact contracts. Completed build, package, and in-game
-evidence is recorded in `docs/verification.md` and
-`Engineering/evidence.json`.
+## Documentation
 
-Licensed under the MIT License; the license notice is included in every
-release package.
-## Developer verification
+- [Architecture](docs/architecture.md)
+- [Compatibility](docs/compatibility.md)
+- [Research](docs/research.md)
+- [Test contracts](docs/tests.md)
+- [Verification record](docs/verification.md) and
+  [`Engineering/evidence.json`](Engineering/evidence.json)
 
-Live debug actions are isolated in
-`Developer/MechMuster.TestFixture`. Build and load that folder only for harness
-verification; it is not part of the Mech Muster shipping package.
+## Developer fixture
+
+Live debug actions are isolated in `Developer/MechMuster.TestFixture`, a
+separately loadable developer mod. Build and load that folder only for harness
+verification; it is never part of the Mech Muster shipping package.
+
+## License
+
+Released under the [MIT License](LICENSE). The license notice is included in
+every release package. Harmony and Spine are used under their own licenses.
