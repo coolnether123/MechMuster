@@ -31,14 +31,14 @@ request, it remains unassigned.
 - RimWorld 1.6
 - Biotech
 - [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077)
-- [Spine](https://github.com/coolnether123/Spine) — the shared runtime used by
+- [SpineLib](https://steamcommunity.com/sharedfiles/filedetails/?id=3778463813) — the shared runtime used by
   CoolNether123 mods
 
 No gameplay mod other than Biotech is required.
 
 ## Installation
 
-Install Harmony and Spine, copy `MechMuster` into RimWorld's `Mods` folder,
+Install Harmony and SpineLib, copy `MechMuster` into RimWorld's `Mods` folder,
 then enable Biotech, Harmony, Spine, and Mech Muster in that order.
 
 The mod is inert in saves without configured Wanted counts and never requires
@@ -69,4 +69,4 @@ verification; it is never part of the Mech Muster shipping package.
 ## License
 
 Released under the [MIT License](LICENSE). The license notice is included in
-every release package. Harmony and Spine are used under their own licenses.
+every release package. Harmony and SpineLib are used under their own licenses.
