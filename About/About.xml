@@ -28,7 +28,13 @@
     <li>brrainz.harmony</li>
     <li>CoolNether123.Spine</li>
   </loadAfter>
-  <description>Give each mechanitor a desired number of every controllable mech type. Mech Muster assigns newly available, unassigned mechs fairly to eligible mechanitors with deficits while respecting bandwidth, explicit priorities, and existing player assignments.
+  <description>Give each mechanitor a wanted count of every mech type and let new mechs sort themselves out.
 
-Open a mechanitor's native Mech Muster command to edit that save's roster. Colonies with several mechanitors get a colony-wide overview before opening an individual roster. Automation can be disabled globally or per mechanitor, and existing overseers and control groups are never changed automatically.</description>
+- Set wanted counts per mechanitor
+- Newly available unassigned mechs go to whoever has a deficit
+- Respects bandwidth, priorities, and any assignment you made yourself
+- Colony-wide overview when you have several mechanitors
+- Automation can be switched off globally or per mechanitor
+
+Requires Biotech, Harmony, and Spine.</description>
 </ModMetaData>
