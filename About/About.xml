@@ -19,7 +19,8 @@
     </li>
     <li>
       <packageId>CoolNether123.Spine</packageId>
-      <displayName>Spine</displayName>
+      <displayName>SpineLib</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3778463813</steamWorkshopUrl>
       <downloadUrl>https://github.com/coolnether123/Spine</downloadUrl>
     </li>
   </modDependencies>
@@ -36,5 +37,5 @@
 - Colony-wide overview when you have several mechanitors
 - Automation can be switched off globally or per mechanitor
 
-Requires Biotech, Harmony, and Spine.</description>
+Requires Biotech, Harmony, and SpineLib.</description>
 </ModMetaData>
