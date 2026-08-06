@@ -39,7 +39,7 @@ No gameplay mod other than Biotech is required.
 ## Installation
 
 Install Harmony and SpineLib, copy `MechMuster` into RimWorld's `Mods` folder,
-then enable Biotech, Harmony, Spine, and Mech Muster in that order.
+then enable Biotech, Harmony, SpineLib, and Mech Muster in that order.
 
 The mod is inert in saves without configured Wanted counts and never requires
 another gameplay mod from the suite.
