@@ -5,6 +5,10 @@ using Verse;
 
 namespace MechMuster.Roster
 {
+    /// <summary>
+    /// Owns save-local plans and schedules low-frequency automatic assignment,
+    /// avoiding global persistence and work on every game tick.
+    /// </summary>
     public sealed class MechMusterGameComponent : GameComponent
     {
         private const int AssignmentIntervalTicks = 250;

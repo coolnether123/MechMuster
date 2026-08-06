@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace MechMuster.Domain
 {
+    /// <summary>
+    /// Chooses a mechanitor using pure, deterministic policy so allocation can
+    /// be verified without loading RimWorld or depending on enumeration order.
+    /// </summary>
     public static class MusterAllocator
     {
         public static MusterCandidate? Select(
@@ -40,6 +44,8 @@ namespace MechMuster.Domain
                 return result;
             }
 
+            // Cross multiplication compares fulfilment ratios without floating-
+            // point rounding changing which mechanitor wins a close tie.
             long leftFulfilment = (long)left.Current * right.Desired;
             long rightFulfilment = (long)right.Current * left.Desired;
             result = leftFulfilment.CompareTo(rightFulfilment);
@@ -48,6 +54,8 @@ namespace MechMuster.Domain
                 return result;
             }
 
+            // A stable pawn-derived ID makes equal requests independent of the
+            // order in which maps, plans, or UI selections were enumerated.
             return string.Compare(
                 left.MechanitorId,
                 right.MechanitorId,

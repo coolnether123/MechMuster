@@ -3,6 +3,10 @@ using Spine.UI.SettingsFramework;
 
 namespace MechMuster.Settings
 {
+    /// <summary>
+    /// Declares the small global settings surface once for Spine to render and
+    /// persist, leaving per-mechanitor roster state in the game component.
+    /// </summary>
     internal static class MechMusterSettingsRegistry
     {
         internal static readonly IReadOnlyList<SettingDefinition> Definitions =

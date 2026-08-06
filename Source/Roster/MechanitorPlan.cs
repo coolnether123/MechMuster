@@ -4,6 +4,10 @@ using Verse;
 
 namespace MechMuster.Roster
 {
+    /// <summary>
+    /// Persists one mechanitor's save-scoped automation intent and desired roster
+    /// so requests survive map absence without becoming global mod settings.
+    /// </summary>
     public sealed class MechanitorPlan : IExposable
     {
         public Pawn Mechanitor;
@@ -50,6 +54,8 @@ namespace MechMuster.Roster
                     Targets = new List<MechTarget>();
                 }
 
+                // Missing definitions cannot be matched or displayed after a mod
+                // list change, so discard only those unusable target records.
                 Targets.RemoveAll(item => item?.MechKind == null);
             }
         }

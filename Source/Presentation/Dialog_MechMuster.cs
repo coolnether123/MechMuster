@@ -10,6 +10,10 @@ using Verse;
 
 namespace MechMuster.Presentation
 {
+    /// <summary>
+    /// Presents colony and per-mechanitor roster editing in one window, keeping
+    /// dynamic mech discovery and player intent at the UI boundary.
+    /// </summary>
     internal sealed class Dialog_MechMuster : Window
     {
         private const float RowHeight = 34f;
@@ -81,6 +85,8 @@ namespace MechMuster.Presentation
                         !pawn.Dead &&
                         MechanitorUtility.IsMechanitor(pawn))
                     .Append(mechanitor)
+                    // The dialog may remain open while its original pawn is
+                    // temporarily absent from the map; keep that plan reachable.
                     .Distinct()
                     .OrderBy(pawn => pawn.LabelShortCap.ToString(),
                         StringComparer.CurrentCultureIgnoreCase)
@@ -139,6 +145,8 @@ namespace MechMuster.Presentation
             {
                 if (automaticAssignments)
                 {
+                    // Explicitly enabling here is stronger than editing a wanted
+                    // count, so it restores both the global and per-plan switches.
                     AutomationState state =
                         AutomationIntent.ForExplicitEnable();
                     plan.AutomationEnabled = state.PlanEnabled;
@@ -643,6 +651,8 @@ namespace MechMuster.Presentation
                 target.Desired++;
                 if (firstRequest)
                 {
+                    // A first request opts this plan into automation but respects
+                    // an explicit global disable made in mod settings.
                     AutomationState state = AutomationIntent.ForWantedEdit(
                         MechMusterMod.Settings.GlobalAutomationEnabled);
                     plan.AutomationEnabled = state.PlanEnabled;

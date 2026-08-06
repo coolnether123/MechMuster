@@ -11,6 +11,10 @@ using Verse;
 
 namespace MechMuster.Runtime
 {
+    /// <summary>
+    /// Translates live RimWorld pawn state into pure allocation candidates and
+    /// applies approved overseer relations without rebalancing existing mechs.
+    /// </summary>
     internal static class MusterAssignmentService
     {
         internal static void RunAutomatic()
@@ -38,6 +42,8 @@ namespace MechMuster.Runtime
             }
 
             Pawn initialOverseer = mech.GetOverseer();
+            // Gestation and resurrection may temporarily assign the worker as
+            // overseer before this postfix runs; treat that relation as provisional.
             Pawn selected = SelectMechanitor(
                 mech,
                 null,
@@ -126,6 +132,8 @@ namespace MechMuster.Runtime
                     mech.OverseerSubject != null &&
                     mech.GetOverseer() == null)
                 .Distinct()
+                // Assignment changes deficits as it proceeds. Stable mech order
+                // makes the resulting distribution independent of map enumeration.
                 .OrderBy(mech => mech.thingIDNumber)
                 .ToArray();
             for (int index = 0; index < mechs.Length; index++)
@@ -191,6 +199,8 @@ namespace MechMuster.Runtime
                         mechanitor.mechanitor.UsedBandwidth;
                 if (mechanitor == initialOverseer)
                 {
+                    // The provisional relation already consumes bandwidth, so add
+                    // this mech's cost back when evaluating whether it may remain.
                     availableBandwidth += bandwidthCost;
                 }
 

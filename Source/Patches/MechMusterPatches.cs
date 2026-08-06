@@ -10,6 +10,10 @@ using Verse;
 
 namespace MechMuster.Patches
 {
+    /// <summary>
+    /// Connects vanilla mech lifecycle and gizmo extension points to the mod's
+    /// services while keeping Harmony details outside domain and presentation.
+    /// </summary>
     internal static class MechMusterPatches
     {
         private const string HarmonyId = "CoolNether123.MechMuster";

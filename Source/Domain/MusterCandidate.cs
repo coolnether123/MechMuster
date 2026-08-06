@@ -1,5 +1,9 @@
 namespace MechMuster.Domain
 {
+    /// <summary>
+    /// Carries only allocation-relevant facts into the pure policy layer,
+    /// shielding it from mutable Pawn and mechanitor tracker state.
+    /// </summary>
     public readonly struct MusterCandidate
     {
         public MusterCandidate(

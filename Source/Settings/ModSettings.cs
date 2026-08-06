@@ -3,6 +3,10 @@ using Verse;
 
 namespace MechMuster.Settings
 {
+    /// <summary>
+    /// Holds preferences that apply across saves; mechanitor-specific requests
+    /// deliberately live in save data rather than this global settings object.
+    /// </summary>
     public sealed class MechMusterSettings : ModSettings
     {
         public bool GlobalAutomationEnabled = true;

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace MechMuster.Domain
 {
+    /// <summary>
+    /// Represents one requested mech type as sanitized inputs for aggregate
+    /// roster calculations, independent of save and presentation objects.
+    /// </summary>
     internal readonly struct MusterTargetCount
     {
         internal MusterTargetCount(int current, int desired)
@@ -16,6 +20,10 @@ namespace MechMuster.Domain
         internal int Desired { get; }
     }
 
+    /// <summary>
+    /// Computes colony-overview totals in one place so the UI cannot conflate
+    /// overall roster size with shortages among specifically requested types.
+    /// </summary>
     internal readonly struct MusterRosterMetrics
     {
         private MusterRosterMetrics(

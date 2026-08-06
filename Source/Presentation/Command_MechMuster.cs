@@ -6,6 +6,10 @@ using Verse;
 
 namespace MechMuster.Presentation
 {
+    /// <summary>
+    /// Gives mechanitors one native command for roster management and exposes
+    /// the relevant global setting through Spine's contextual settings gesture.
+    /// </summary>
     internal sealed class Command_MechMuster : Command_Action
     {
         internal Command_MechMuster(Pawn mechanitor)

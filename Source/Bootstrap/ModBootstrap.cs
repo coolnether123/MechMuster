@@ -6,6 +6,10 @@ using Verse;
 
 namespace MechMuster.Bootstrap
 {
+    /// <summary>
+    /// Composes Spine settings and Harmony integration at startup so gameplay,
+    /// persistence, and presentation remain independent of mod initialization.
+    /// </summary>
     public sealed class MechMusterMod : SpineMod<MechMusterSettings>
     {
         public MechMusterMod(ModContentPack content)
