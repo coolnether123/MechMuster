@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "mech-muster",
+  "strategy": "support-branches",
+  "allowRealExecution": true,
+  "sourceBranch": "main",
+  "sourceVersion": "1.6",
+  "supportVersions": ["1.5", "1.4"],
+  "payloadRoots": ["Assemblies", "About/About.xml", "LoadFolders.xml", "1.6/Assemblies", "1.5/Assemblies", "1.4/Assemblies"],
+  "copyBackPaths": ["1.5/Assemblies", "1.4/Assemblies"],
+  "build": {"project": "Tools/Build-Version.ps1", "configurationTemplate": "{version}", "expectedAssembly": "MechMuster.dll"},
+  "hooks": [
+    {"name": "mech-muster-branch-metadata", "path": "Tools/SupportCascadeHooks.ps1", "phase": "after-merge", "versions": ["*"]},
+    {"name": "mech-muster-root-payload", "path": "Tools/SupportCascadeHooks.ps1", "phase": "before-stage", "versions": ["*"]}
+  ],
+  "additionalActions": [], "copyBack": true, "push": false, "restoreSource": true
+}
