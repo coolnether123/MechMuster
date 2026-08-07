@@ -4,6 +4,7 @@ $repository = [System.IO.Path]::GetFullPath((Split-Path -Parent $PSScriptRoot));
 $aboutXml=@"
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData><name>$name</name><author>CoolNether123</author><packageId>$package</packageId><modVersion>1.0.0</modVersion><supportedVersions><li>$Version</li></supportedVersions><modDependencies><li><packageId>Ludeon.RimWorld.Biotech</packageId><displayName>Biotech</displayName></li><li><packageId>brrainz.harmony</packageId><displayName>Harmony</displayName></li><li><packageId>CoolNether123.Spine</packageId><displayName>SpineLib</displayName></li></modDependencies><loadAfter><li>Ludeon.RimWorld.Biotech</li><li>brrainz.harmony</li><li>CoolNether123.Spine</li></loadAfter><description>$description RimWorld $Version support build.</description></ModMetaData>
+"@;
 $loadFoldersXml = @"
 <?xml version="1.0" encoding="utf-8"?>
 <loadFolders>
