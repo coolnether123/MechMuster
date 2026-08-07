@@ -5,9 +5,18 @@
     <AssemblyName>MechMuster</AssemblyName>
     <RootNamespace>MechMuster</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <OutputPath>..\1.6\Assemblies\</OutputPath>
+    <Configurations>1.6;1.5;1.4</Configurations>
+    <DisableImplicitConfigurationDefines>true</DisableImplicitConfigurationDefines>
+    <OutputPath>..\$(Configuration)\Assemblies\</OutputPath>
     <RwtUseHarmony>true</RwtUseHarmony>
     <RwtUseSpine>true</RwtUseSpine>
     <RwtUseUnityImGui>true</RwtUseUnityImGui>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == '1.5'">
+    <DefineConstants>MECH_MUSTER_HAS_MODERN_PRODUCTS;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == '1.4'">
+    <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
 </Project>

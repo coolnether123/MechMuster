@@ -22,6 +22,7 @@ namespace MechMuster.Patches
 
         internal static void Install()
         {
+#if MECH_MUSTER_HAS_MODERN_PRODUCTS
             Installer.TryPatch(
                 "gestation completion",
                 AccessTools.Method(
@@ -38,6 +39,7 @@ namespace MechMuster.Patches
                 postfix: new HarmonyMethod(
                     typeof(MechMusterPatches),
                     nameof(NewMechPostfix)));
+#endif
             Installer.TryPatch(
                 "mechanitor gizmos",
                 AccessTools.Method(
