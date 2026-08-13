@@ -1,4 +1,3 @@
-using Spine.Api;
 using Verse;
 
 namespace MechMuster.Settings
@@ -14,9 +13,7 @@ namespace MechMuster.Settings
 
         public override void ExposeData()
         {
-            SpineApi.Settings.Scribe(
-                this,
-                MechMusterSettingsRegistry.Definitions);
+            MechMusterSettingsRegistry.Schema.Scribe(this);
             base.ExposeData();
         }
     }

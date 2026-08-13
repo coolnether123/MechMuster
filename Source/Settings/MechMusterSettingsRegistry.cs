@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Spine.UI.SettingsFramework;
 
 namespace MechMuster.Settings
@@ -9,28 +8,24 @@ namespace MechMuster.Settings
     /// </summary>
     internal static class MechMusterSettingsRegistry
     {
-        internal static readonly IReadOnlyList<SettingDefinition> Definitions =
-            new[]
-            {
-                SettingDefinitions.Header(
-                    "automation.header",
-                    "Automation",
-                    "MechMuster_Settings_Automation"),
-                SettingDefinitions.Toggle(
-                    "automation.global",
-                    nameof(MechMusterSettings.GlobalAutomationEnabled),
-                    "Enable automatic muster",
-                    "MechMuster_Settings_Global",
-                    tooltipKey: "MechMuster_Settings_Global_Tip",
-                    scribeKey: "globalAutomationEnabled"),
-                SettingDefinitions.Toggle(
-                    "feedback.messages",
-                    nameof(MechMusterSettings.ShowAssignmentMessages),
-                    "Show assignment messages",
-                    "MechMuster_Settings_Messages",
-                    tooltipKey: "MechMuster_Settings_Messages_Tip",
-                    scribeKey: "showAssignmentMessages")
-            };
+        internal static readonly SettingsSchema<MechMusterSettings> Schema =
+            new SettingsSchema<MechMusterSettings>(
+                SettingsSchemaConventions.LowerCamelCase);
 
+        static MechMusterSettingsRegistry()
+        {
+            var automation = Schema.Section(
+                "automation.header",
+                "Automation",
+                "MechMuster_Settings_Automation");
+            automation.Toggle("automation.global",
+                settings => settings.GlobalAutomationEnabled,
+                "Enable automatic muster")
+                .Localized("MechMuster_Settings_Global", "MechMuster_Settings_Global_Tip");
+            Schema.Root.Toggle("feedback.messages",
+                settings => settings.ShowAssignmentMessages,
+                "Show assignment messages")
+                .Localized("MechMuster_Settings_Messages", "MechMuster_Settings_Messages_Tip");
+        }
     }
 }

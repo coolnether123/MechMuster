@@ -16,9 +16,10 @@ namespace MechMuster.Bootstrap
             : base(
                 content,
                 "CoolNether123.MechMuster",
-                new SemanticVersion(1, 0, 0),
-                MechMusterSettingsRegistry.Definitions,
-                SpineCapability.HarmonyPatching,
+                new SemanticVersion(1, 1, 0),
+                MechMusterSettingsRegistry.Schema.Definitions,
+                SpineCapability.HarmonyPatching |
+                SpineCapability.SettingsSchema,
                 new ModSettingsPageOptions { RowHeight = 38f })
         {
             MechMusterPatches.Install();
