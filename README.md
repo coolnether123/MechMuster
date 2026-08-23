@@ -6,8 +6,8 @@ colony mechs can be assigned automatically to an eligible mechanitor with a
 deficit.
 
 Select a mechanitor, open the single **Mech Muster** gizmo, and set **Wanted**
-with the direct −/+ controls. The native window shows a plain Current and
-Wanted count for every discovered vanilla or modded mech type. Optional
+with the direct -/+ controls. The window shows Current and Wanted counts for
+every discovered vanilla or modded mech type. Optional
 priority stays behind **Advanced**; higher priorities are filled first, while
 equal-priority requests are filled proportionally with stable pawn-ID ties.
 
@@ -17,22 +17,23 @@ shortage, and requested composition in one list. A mechanitor name or its
 **Roster** button opens that detailed roster inside the same window, and the
 **Colony overview** button returns without closing or reselecting pawns.
 
-Automatic muster defaults on, but is inert until a Wanted count is above zero,
-and can be disabled globally or per mechanitor. Editing a Wanted count never
-overrides an explicit global disable. **Muster now** is an explicit action and
-works for the open mechanitor even while either automatic switch is off. Mech
-Muster never rebalances or steals an existing overseer assignment, and it never
-moves a mech between vanilla control groups. Manual claims and transfers remain
-authoritative. If automation is on and a newly completed mech has no eligible
-request, it remains unassigned.
+Automatic muster is on by default, but does nothing until a Wanted count is
+above zero. You can disable automatic muster globally or for one mechanitor.
+Editing a Wanted count never overrides an explicit global disable. **Muster
+now** is an explicit action and works for the open mechanitor while either
+automatic switch is
+off. Mech Muster never rebalances or steals an existing overseer assignment,
+and it never moves a mech between vanilla control groups. Manual claims and
+transfers remain authoritative. If automation is on and a newly completed mech
+has no eligible request, it remains unassigned.
 
 ## Requirements
 
 - RimWorld 1.6
 - Biotech
 - [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077)
-- [SpineLib](https://steamcommunity.com/sharedfiles/filedetails/?id=3778463813) — the shared runtime used by
-  CoolNether123 mods
+- [SpineLib](https://steamcommunity.com/sharedfiles/filedetails/?id=3778463813),
+  the shared runtime for CoolNether123 mods
 
 No gameplay mod other than Biotech is required.
 

@@ -4,13 +4,13 @@
   "rimWorldVersion": "1.6",
   "profilerMode": "absent",
   "currentCandidate": {
-    "date": "2026-08-02",
-    "sourceBaseCommit": "98975c548ed67d05e1bd959218262374fcffa2bd",
-    "sourceStateAtBuild": "working tree release candidate; commit pending",
+    "date": "2026-08-13",
+    "sourceBaseCommit": "f18b873936c9620c352db13908aae25613b3a52e",
+    "sourceStateAtBuild": "committed source with preserved untracked AGENTS.md; final cascade restored main at 83a914381f2e4ce00b95cf897333d6f3f890785b",
     "assemblyVersion": "1.0.0.0",
-    "modAssemblySizeBytes": 31232,
-    "modAssemblySha256": "640E742F06E25D01FC1CD7A5A9BB2914AE676AD202937010A4C8EEF383D37392",
-    "spineSha256": "3E857A09793BBFF839D0C18D197E480C9365B6384148F49F48669F068BBB9086",
+    "modAssemblySizeBytes": 33280,
+    "modAssemblySha256": "AA6AEE99DD796436C9A9BF99CF60CCC0ADB374C4C96853DB753C7D9724F0949E",
+    "spineSha256": "A516A89A0056E90AD75FDA10FBAB9ACDE47C2B39100681C016E471A27DC3FCFB",
     "buildWarnings": 0,
     "buildErrors": 0,
     "automatedTests": "1 contract, 46 assertions passed",
@@ -23,7 +23,7 @@
       "Languages",
       "LICENSE"
     ],
-    "runtimeEvidenceNotice": "The runtime records below remain exact evidence for their named historical assemblies. A final combined launch is required for this metadata-only rebuild."
+    "runtimeEvidenceNotice": "Current combined launch evidence is recorded in campaign20260813; historical records below retain their original provenance."
   },
   "build": {
     "versionManifestSha256": "0174C74429A3B1D9B272002A055FDBBC6645A0BF24A085E8BF39FDD3407B505B",
@@ -197,5 +197,87 @@
     "modAssemblySha256",
     "activeMods",
     "logSha256"
-  ]
+  ],
+  "campaign20260813": {
+    "disposition": "PASS_WITH_LIMITATIONS",
+    "sourceCommit": "f18b873936c9620c352db13908aae25613b3a52e",
+    "finalRepositoryHead": "83a914381f2e4ce00b95cf897333d6f3f890785b",
+    "sourceDirtyReason": "preserved untracked AGENTS.md; cascade executed from clean main and restored main after support copy-back",
+    "versionManifestSha256": "2B85365E144D8D4F5FCCBEF1BC4029928866D23208733CF2FDAFF526F0033638",
+    "gameManifestId": "1.6",
+    "gameBuildNumber": "1.6.4871 rev573",
+    "gameVersionTxtSha256": "F35A16CA48E588492CA1495BD6B36CEA45119EF78E717AE78C21604C014C4F63",
+    "gameAssemblySha256": "4A170804FBFEFABDB620D8914E584E58F822A58C6E304DCB76A67003588DAB28",
+    "playerLogBanner": "RimWorld 1.6.4871 rev574",
+    "previousModAssemblySha256": "2BF02896E5334F97997AFC587C0824B2FE4801BD7CD7647537BCFE16A65F1FF3",
+    "modAssemblySha256": "AA6AEE99DD796436C9A9BF99CF60CCC0ADB374C4C96853DB753C7D9724F0949E",
+    "modAssemblySizeBytes": 33280,
+    "fixtureAssemblySha256": "E7E7013FA02A089B197C27B1E61F56C6CC34C871A03BD053D4AB4DEB47F9642C",
+    "dependencies": {
+      "harmonySha256": "7B9E756306FA3D7620E02A857C8927A6AB04973F9BD8A77D3866700A6DEAC55C",
+      "spineSha256": "A516A89A0056E90AD75FDA10FBAB9ACDE47C2B39100681C016E471A27DC3FCFB",
+      "biotechProfile": "biotech"
+    },
+    "package": {
+      "path": "A:/Dev/RimWorld/Runtime/MechMuster-Campaign-20260813-package-final",
+      "resultCode": "RWT-BUILD-RELEASE-PACKAGE-VALID",
+      "includePaths": ["About", "1.6/Assemblies/MechMuster.dll", "Languages", "LICENSE"],
+      "developerFixtureIncluded": false,
+      "fileHashes": {
+        "1.6/Assemblies/MechMuster.dll": "AA6AEE99DD796436C9A9BF99CF60CCC0ADB374C4C96853DB753C7D9724F0949E",
+        "About/About.xml": "B121E788CB5340D4C6A1A137C0C4C2797049498933AB1F1C026B40682B7844D3",
+        "About/Preview.png": "F8944272E16834EE70D2BDDE228E853FB11F9BC97DF6BEA361F1F21C3BE252E1",
+        "Languages/English/Keyed/MechMuster.xml": "56120D6352CCB3892358F154C6A4F46D606D66B7DD2F32817C141317E082941F",
+        "LICENSE": "7942115C67A258A6F955EF971F48E7A04C8A1CDCEC8F862CED392F93DA44F05A"
+      }
+    },
+    "runtime": {
+      "sessionId": "MechMuster-e85183ed60a44dc4854d7e49ac2d341b",
+      "activeMods": ["Ludeon.RimWorld", "brrainz.harmony", "Coolnether123.RimWorldAgent", "Ludeon.RimWorld.Biotech", "CoolNether123.Spine", "CoolNether123.MechMuster", "CoolNether123.MechMuster.TestFixture"],
+      "liveProbe": "complete",
+      "liveProbeDetails": {"noSteal": true, "groupPreserved": true, "fairAssignment": true, "unrequested": true, "newMechUnrequested": true, "perAutomation": true, "globalOff": true, "manual": true, "mechKinds": 22},
+      "saveReloadState": "plans=2 targets=2 mechKinds=22 globalAutomation=true",
+      "harmony": "3 postfixes; summary reported 4 patched methods and 3 Mech Muster-owned patches",
+      "gizmo": "exactly one visible rightmost Mech Muster gizmo; semantic request matched=1 but native-input-queue-failed: InvalidOperationException",
+      "settings": "both boolean fields exercised true/false with persist=true; settings window captured at UI scales 1.0 and 1.25",
+      "logSha256": "BF739AA1B0F5E6578B548E36D7C2521313EB7C7C359EC16D264C11D5E6FB363C",
+      "actualErrorOrExceptionRecords": 0,
+      "forcedTermination": false,
+      "exitCode": 0,
+      "captures": {
+        "final-default-settings-1-0-20260813-093948-744.png": "0E9DB8B275B52C39D7769F0CE9DBBC64D7C41C7BECB37E8028E172385446DADC",
+        "final-off-settings-1-0-20260813-094012-260.png": "62088F8DE1A3C2619D593920C85E3B72D25D9CEBA421C5D1FA2D507921A20778",
+        "final-settings-1-25-20260813-094056-247.png": "367A25BDA05780B29CA2573DE26D75B24198F9B77B5387939085A314BDCA4FF0",
+        "final-settings-1-0-20260813-094112-347.png": "A33CB2D5DD9FEAF90DC2287472FAF0B990C06D957D2C47B4EA8C052406697975"
+      }
+    },
+    "cascade": {
+      "planPath": "A:/Dev/RimWorld/Runtime/MechMuster-Campaign-20260813-cascade-plan-final-v3.json",
+      "planSha256Canonical": "C9D57CBAB69565EE197AFBEF75914C03F6ED8AAF995745E8A5351322A1688481",
+      "planFileSha256": "E76930BFAD8416B7F8E865F3FB9F1181376A47111F9B7EB2FC5FF90FADE660E8",
+      "journalPath": "A:/Dev/RimWorld/Runtime/MechMuster-Campaign-20260813-cascade-journal-final-v2.jsonl",
+      "journalSha256": "23FEA2313DE1AE3AFB216563512EB099A83243C0CC2935826BEECD0B13650CD0",
+      "journalRecordCount": 23,
+      "journalFinalRecordSha256": "B2825676C9DDFEE95446305764D3AA885D40CF207E74AAD25960C164B5EBD6D1",
+      "status": "PASS",
+      "manifestFixCommit": "f18b873936c9620c352db13908aae25613b3a52e",
+      "failedPreflightEvidence": {
+        "planSha256Canonical": "99649570897CB075FF12E88D15C0009264B3B92FBE2346B62D2D64C7C943E1BF",
+        "journalPath": "A:/Dev/RimWorld/Runtime/MechMuster-Campaign-20260813-cascade-journal-final.jsonl",
+        "partialMergePatchSha256": "4D7C7D18C0E522E9005FF5C265CAF0927CCCEAA6FE238DFCE890D98D32EF58D7",
+        "failure": "RWT-CASCADE-PAYLOAD-ONLY on merge-carried source paths; fixed by declaring three exact source paths in the mod manifest"
+      },
+      "supportBranchEvidence": {
+        "1.4": {"branch": "Support/1.4", "commit": "afc8053bb8cecd7b62127b3d713b2e2742183d67", "aboutSupportedVersion": "1.4", "dllSizeBytes": 32768, "dllSha256": "227C42BAE208253A0B47E74EC07BBE210B53F602E4AF8BE59E5AE0EE54CFA3A8"},
+        "1.5": {"branch": "Support/1.5", "commit": "faff56347ab2c5e4457574998cdaca5597ea5de9", "aboutSupportedVersion": "1.5", "dllSizeBytes": 33280, "dllSha256": "7B92BFBEF0FF8E7881F9B4C70D6961BEB0D37BD20F921EBC89BF45C98C5F2C17"}
+      },
+      "supportRuntimeDisposition": "UNAVAILABLE: current main metadata supports only 1.6 and the current dependency manifest has no available Biotech runtime candidates for 1.4 or 1.5"
+    },
+    "performance": {
+      "status": "UNAVAILABLE",
+      "architecture": "MechMusterGameComponent.GameComponentTick runs every 250 ticks and calls MusterAssignmentService.RunAutomatic; bill-completion and gizmo postfixes are additional event paths",
+      "harmonyAndCallEvidence": "Source/Roster/MechMusterGameComponent.cs:14,36-40; Source/Runtime/MusterAssignmentService.cs:20; Source/Patches/MechMusterPatches.cs:25-48",
+      "reason": "A steady-state paired workload is required by this architecture, but no repository-owned benchmark protocol or Dubs Performance Analyzer/isolated benchmark reference is available in the current dependency manifest; no performance claim is made"
+    }
+  }
 }

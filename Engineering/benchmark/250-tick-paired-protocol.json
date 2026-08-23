@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "name": "MechMuster recurring 250-tick paired benchmark",
+  "rimWorldVersion": "1.6",
+  "payloadSha256": "AA6AEE99DD796436C9A9BF99CF60CCC0ADB374C4C96853DB753C7D9724F0949E",
+  "fixtureAssemblySha256": "50B9B556282279080F64245CEF2D013DAA0123A2D230301CC101ADD037A65D08",
+  "fixture": {
+    "mechanitors": 8,
+    "plans": 8,
+    "targetsPerPlan": 1,
+    "requestedKind": "Mech_Lifter",
+    "unassignedMechs": 64,
+    "workloadKind": "Mech_Agrihand",
+    "expectedAssignedBefore": 0,
+    "expectedAssignedAfter": 0
+  },
+  "arms": {
+    "baseline": {
+      "globalAutomationEnabled": false,
+      "showAssignmentMessages": false
+    },
+    "candidate": {
+      "globalAutomationEnabled": true,
+      "showAssignmentMessages": false
+    }
+  },
+  "ticks": {
+    "warmup": 10000,
+    "measurementBatches": 5,
+    "ticksPerMeasurementBatch": 10000,
+    "totalMeasurementTicks": 50000,
+    "assignmentInterval": 250,
+    "expectedRecurringInvocations": 200
+  },
+  "schedule": [
+    { "trial": 1, "block": 1, "position": 1, "arm": "candidate" },
+    { "trial": 2, "block": 1, "position": 2, "arm": "baseline" },
+    { "trial": 3, "block": 1, "position": 3, "arm": "baseline" },
+    { "trial": 4, "block": 1, "position": 4, "arm": "candidate" },
+    { "trial": 5, "block": 2, "position": 1, "arm": "baseline" },
+    { "trial": 6, "block": 2, "position": 2, "arm": "candidate" },
+    { "trial": 7, "block": 2, "position": 3, "arm": "candidate" },
+    { "trial": 8, "block": 2, "position": 4, "arm": "baseline" }
+  ],
+  "gates": {
+    "freshProcessPerTrial": true,
+    "noOtherRunningRwaSessions": true,
+    "sameFrozenSave": true,
+    "samePackageAndFixture": true,
+    "sameWarmupAndInstrumentation": true,
+    "behaviorParityRequired": true
+  },
+  "metrics": [
+    "ticksPerSecond",
+    "wallMillisecondsPerTick",
+    "processCpuMillisecondsPerTick",
+    "processCpuCoreUtilizationPercent",
+    "workingSetDelta",
+    "privateBytesDelta",
+    "managedMemoryDelta",
+    "gc0",
+    "gc1",
+    "gc2"
+  ]
+}

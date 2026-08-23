@@ -29,15 +29,15 @@
   <MechMuster_Column_Desired>Wanted</MechMuster_Column_Desired>
   <MechMuster_Wanted_Tip>The number of this mech type this mechanitor should control.</MechMuster_Wanted_Tip>
   <MechMuster_Column_Priority>Priority</MechMuster_Column_Priority>
-  <MechMuster_Priority_Normal>—</MechMuster_Priority_Normal>
-  <MechMuster_Priority_Tip>Higher numbers are filled first. Leave at — for normal fair assignment.</MechMuster_Priority_Tip>
+  <MechMuster_Priority_Normal>Normal</MechMuster_Priority_Normal>
+  <MechMuster_Priority_Tip>Higher numbers are filled first. Leave at Normal for fair assignment.</MechMuster_Priority_Tip>
   <MechMuster_MusterNow>Muster now</MechMuster_MusterNow>
   <MechMuster_NoMechTypes>No controllable mech types are loaded.</MechMuster_NoMechTypes>
   <MechMuster_NoSearchResults>No mech types match this search.</MechMuster_NoSearchResults>
   <MechMuster_NoRebalance>Existing mech assignments stay unchanged.</MechMuster_NoRebalance>
   <MechMuster_Settings_Automation>Automation</MechMuster_Settings_Automation>
   <MechMuster_Settings_Global>Enable automatic muster</MechMuster_Settings_Global>
-  <MechMuster_Settings_Global_Tip>Periodically assign unassigned colony mechs and route newly gestated or resurrected mechs to eligible mechanitors with wanted counts. Enabled by default, but inert until at least one wanted count is above zero.</MechMuster_Settings_Global_Tip>
+  <MechMuster_Settings_Global_Tip>Periodically assign unassigned colony mechs and send newly gestated or resurrected mechs to eligible mechanitors with wanted counts. This is on by default, but does nothing until at least one wanted count is above zero.</MechMuster_Settings_Global_Tip>
   <MechMuster_Settings_Messages>Show assignment messages</MechMuster_Settings_Messages>
   <MechMuster_Settings_Messages_Tip>Show one concise message when Mech Muster assigns a mech or leaves a newly completed mech unrequested.</MechMuster_Settings_Messages_Tip>
   <MechMuster_Message_Assigned>Mech Muster assigned {0} to {1}.</MechMuster_Message_Assigned>

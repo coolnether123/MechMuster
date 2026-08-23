@@ -131,3 +131,49 @@ checks. A live Biotech colony with two mechanitors opened the colony-wide
 overview, showed both mechanitors and roster entry points cleanly, and kept its
 gizmo to the right of vanilla controls. The all-suite compatibility stacks
 produced no Mech Muster exception.
+
+## Luna campaign continuation (2026-08-13)
+
+The official support cascade completed all 23 journaled actions from clean
+`main` at `f18b873936c9620c352db13908aae25613b3a52e`, restoring `main` after
+copy-back at `83a914381f2e4ce00b95cf897333d6f3f890785b`. The reviewed plan is
+`A:/Dev/RimWorld/Runtime/MechMuster-Campaign-20260813-cascade-plan-final-v3.json`
+with canonical executor hash
+`C9D57CBAB69565EE197AFBEF75914C03F6ED8AAF995745E8A5351322A1688481` and file
+SHA-256 `E76930BFAD8416B7F8E865F3FB9F1181376A47111F9B7EB2FC5FF90FADE660E8`.
+The append-only journal is
+`A:/Dev/RimWorld/Runtime/MechMuster-Campaign-20260813-cascade-journal-final-v2.jsonl`,
+SHA-256 `23FEA2313DE1AE3AFB216563512EB099A83243C0CC2935826BEECD0B13650CD0`,
+with 23 records and final record hash
+`B2825676C9DDFEE95446305764D3AA885D40CF207E74AAD25960C164B5EBD6D1`.
+
+The bounded cascade contract fix was commit `f18b873`: it declares the three
+exact Spine/settings source paths that the build and support merge carry, while
+leaving the shared payload-only guard unchanged. The final distributed and
+verified DLL hashes agree: 1.6 is 33,280 bytes
+`AA6AEE99DD796436C9A9BF99CF60CCC0ADB374C4C96853DB753C7D9724F0949E`, 1.5 is
+33,280 bytes `7B92BFBEF0FF8E7881F9B4C70D6961BEB0D37BD20F921EBC89BF45C98C5F2C17`,
+and 1.4 is 32,768 bytes
+`227C42BAE208253A0B47E74EC07BBE210B53F602E4AF8BE59E5AE0EE54CFA3A8`. The
+fresh 1.6 package at
+`A:/Dev/RimWorld/Runtime/MechMuster-Campaign-20260813-package-final` returned
+`RWT-BUILD-RELEASE-PACKAGE-VALID` and excludes the developer fixture.
+
+Final fixture retest session `MechMuster-e85183ed60a44dc4854d7e49ac2d341b`
+used the exact `biotech` order Core, Harmony, RimWorld Agent, Biotech, Spine,
+Mech Muster, and the separately loaded developer fixture. The live probe passed
+all lifecycle invariants; save/reload preserved `plans=2 targets=2 mechKinds=22`,
+both settings persisted through false/true arms, and UI-scale 1.0/1.25 captures
+were clean. Harmony reported three Mech Muster-owned postfixes; the visible
+Mech Muster gizmo was enabled and rightmost after vanilla controls, while its
+native input queue remained unavailable with the documented
+`InvalidOperationException`. The real fixture debug action opened
+`MechMuster.Presentation.Dialog_MechMuster`. The lane stopped with exit code 0,
+no forced termination, and log SHA-256
+`BF739AA1B0F5E6578B548E36D7C2521313EB7C7C359EC16D264C11D5E6FB363C`.
+
+Performance is `UNAVAILABLE`, not `NOT APPLICABLE`: source evidence shows the
+250-tick `GameComponentTick` calls `MusterAssignmentService.RunAutomatic`, so a
+meaningful paired steady-state workload is required. No repository-owned
+benchmark protocol or Dubs/isolated benchmark reference is available in the
+current dependency manifest; no performance claim is made.
