@@ -15,5 +15,5 @@ Use `SpineMod<MechMusterSettings>` and Spine's patching facade. Keep gameplay
 and dynamic mech UI local; keep mod gizmos at the far right.
 
 Metadata, `Tools\CascadeManifest.json`, project files, and `Tests` are the local
-authorities. Use the shared workflow in `A:\Dev\RimWorld\AGENTS.md` and the
+authorities. Use the shared workflow in `H:\Dev\RimWorld\AGENTS.md` and the
 harness's `biotech` profile for live verification.
