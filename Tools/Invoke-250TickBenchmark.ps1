@@ -1,20 +1,20 @@
 [CmdletBinding()]
 param(
     [string]$PackagePath =
-        'A:\Dev\RimWorld\Runtime\MechMuster-Campaign-20260813-package-final',
+        'H:\Dev\RimWorld\Runtime\MechMuster-Campaign-20260813-package-final',
     [string]$FixturePath =
-        'A:\Dev\RimWorld\Mods\MechMuster\Developer\MechMuster.TestFixture',
+        'H:\Dev\RimWorld\Mods\MechMuster\Developer\MechMuster.TestFixture',
     [string]$HarnessPackagePath =
         'A:\Dev\Temp\CanonicalHarnessRepairLivePackage-20260813',
     [string]$OutputRoot =
-        'A:\Dev\RimWorld\Runtime\MechMuster-250Tick-Benchmark',
+        'H:\Dev\RimWorld\Runtime\MechMuster-250Tick-Benchmark',
     [switch]$PreflightOnly
 )
 
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 
-$harnessRoot = 'A:\Dev\RimWorld\Infrastructure\AgenticHarness\RimWorld-Agent'
+$harnessRoot = 'H:\Dev\RimWorld\Infrastructure\AgenticHarness\RimWorld-Agent'
 $rwa = Join-Path $harnessRoot 'Tools\rwa.cmd'
 $protocolPath = Join-Path $PSScriptRoot '..\Engineering\benchmark\250-tick-paired-protocol.json'
 $expectedHarnessCommit =
